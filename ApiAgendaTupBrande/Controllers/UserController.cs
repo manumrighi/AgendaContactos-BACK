@@ -3,6 +3,7 @@ using ApiAgendaTupBrande.Data.Repository.Interfaces;
 using ApiAgendaTupBrande.Entities;
 using ApiAgendaTupBrande.Models.Dtos;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace ApiAgendaTupBrande.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IMapper _mapper;
