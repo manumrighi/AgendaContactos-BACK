@@ -1,5 +1,6 @@
 ﻿using ApiAgendaTupBrande.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace ApiAgendaTupBrande.Data
 {
@@ -11,6 +12,12 @@ namespace ApiAgendaTupBrande.Data
         }
 
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<User> Users { get; set; } 
+        public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           base.OnModelCreating(modelBuilder);
+        }
+        
     }
 }

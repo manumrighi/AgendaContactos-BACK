@@ -12,7 +12,7 @@ namespace ApiAgendaTupBrande.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
     public class ContactController : ControllerBase
     {
         private readonly IMapper _mapper;

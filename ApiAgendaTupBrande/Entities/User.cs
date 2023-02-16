@@ -15,5 +15,7 @@ namespace ApiAgendaTupBrande.Entities
         public string Email { get; set; }
         [Required]
         public string UserName { get; set; }
+
+        public IEnumerable<Contact> Contacts { get; set; }
     }
 }

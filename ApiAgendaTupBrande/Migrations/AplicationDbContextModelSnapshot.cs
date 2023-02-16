@@ -44,7 +44,12 @@ namespace ApiAgendaTupBrande.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Contacts");
                 });
@@ -80,6 +85,18 @@ namespace ApiAgendaTupBrande.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ApiAgendaTupBrande.Entities.Contact", b =>
+                {
+                    b.HasOne("ApiAgendaTupBrande.Entities.User", null)
+                        .WithMany("Contacts")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ApiAgendaTupBrande.Entities.User", b =>
+                {
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,5 +9,6 @@ namespace ApiAgendaTupBrande.Data.Repository.Interfaces
         Task DeleteContact(Contact contact);
         Task<Contact> AddContact(Contact contact);
         Task UpdateContact(Contact contact);   
+        Task AddFavorite(Contact contact);
     }
 }

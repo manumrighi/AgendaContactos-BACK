@@ -44,5 +44,17 @@ namespace ApiAgendaTupBrande.Data.Repository.Implementation
             _context.Update(contact);
             await _context.SaveChangesAsync();
         }
+
+        public async Task AddFavorite(Contact contact)
+        {
+            var contactItem = await _context.Contacts.FirstOrDefaultAsync(x => x.Id == contact.Id);
+
+            if(contactItem != null)
+            {
+                contactItem.Favorite = true;
+            }
+
+            await _context.SaveChangesAsync();
+        }
     }  
 }

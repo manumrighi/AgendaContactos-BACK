@@ -8,10 +8,14 @@ namespace ApiAgendaTupBrande.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int? CelularNumber { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public Boolean Favorite { get; set; }
+
+        //[ForeignKey("UserId")]
+        //public int UserId { get; set; } 
+        //public User? User { get; set; }
 
     }
 }
