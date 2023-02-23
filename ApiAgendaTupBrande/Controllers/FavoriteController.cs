@@ -1,8 +1,11 @@
-﻿using ApiAgendaTupBrande.Data.Repository.Interfaces;
+﻿using ApiAgendaTupBrande.Data.Repository.Implementation;
+using ApiAgendaTupBrande.Data.Repository.Interfaces;
 using ApiAgendaTupBrande.Entities;
 using ApiAgendaTupBrande.Models.Dtos;
 using AutoMapper;
+using Azure;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiAgendaTupBrande.Controllers
@@ -21,35 +24,37 @@ namespace ApiAgendaTupBrande.Controllers
             _contactRepository = contactRepository;
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, ContactDTO contactDto)
-        {
-            try
-            {
-                // Hacemos el Mappeo
-                var contact = _mapper.Map<Contact>(contactDto);
+        //[HttpPatch("{id}")]
+        //public async Task<IActionResult> Patch(int id, JsonPatchDocument<Contact> favoriteDto)
+        //{
+        //    var contact = await _contactRepository.AddFavorite(id, JsonPatchDocument favoriteDTO);
 
-                if (id != contact.Id)
-                {
-                    return BadRequest();
-                }
+        //}
+//        try
+//            {
+//                // Hacemos el Mappeo
+//                var contact = _mapper.Map<Contact>(favoriteDto);
 
-                var contactItem = await _contactRepository.GetContactById(contact.Id);
+//                if (id != contact.Id)
+//                {
+//                    return BadRequest();
+//    }
 
-                if (contactItem != null)
-                {
-                    return NotFound();
-                }
+//    var contactItem = await _contactRepository.GetContactById(contact.Id);
 
-                await _contactRepository.AddFavorite(contact);
+//                if (contactItem != null)
+//                {
+//                    return NotFound();
+//}
 
-                return Ok(new { message = "Favorito agregado" });
+//await _contactRepository.AddFavorite(contact);
 
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+//return Ok(new { message = "Favorito agregado" });
+
+//            }
+//            catch (Exception ex)
+//{
+//    return BadRequest(ex.Message);
+//}
     }
 }

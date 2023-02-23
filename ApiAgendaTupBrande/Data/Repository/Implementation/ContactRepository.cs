@@ -1,5 +1,6 @@
 ﻿using ApiAgendaTupBrande.Data.Repository.Interfaces;
 using ApiAgendaTupBrande.Entities;
+using Azure;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiAgendaTupBrande.Data.Repository.Implementation
@@ -12,7 +13,6 @@ namespace ApiAgendaTupBrande.Data.Repository.Implementation
         {
             _context = context;                
         }
-
 
         public async Task<List<Contact>> GetListContacts()
         {
@@ -45,16 +45,27 @@ namespace ApiAgendaTupBrande.Data.Repository.Implementation
             await _context.SaveChangesAsync();
         }
 
-        public async Task AddFavorite(Contact contact)
-        {
-            var contactItem = await _context.Contacts.FirstOrDefaultAsync(x => x.Id == contact.Id);
+        //public async Task AddFavorite(int id, JsonPatchDocument favoriteDTO)
+        //{
+        //    var contact = await _context.Contacts.FindAsync(id);
+        //    if (contact != null)
+        //    {
+        //        favoriteDTO.App  
 
-            if(contactItem != null)
-            {
-                contactItem.Favorite = true;
-            }
+        //    }
+        //}
 
-            await _context.SaveChangesAsync();
-        }
+
+        //public async Task AddFavorite(Contact contact)
+        //{
+        //    var contactItem = await _context.Contacts.FirstOrDefaultAsync(x => x.Id == contact.Id);
+
+        //    if(contactItem != null)
+        //    {
+        //        contactItem.Favorite = true;
+        //    }
+
+        //    await _context.SaveChangesAsync();
+        //}
     }  
 }

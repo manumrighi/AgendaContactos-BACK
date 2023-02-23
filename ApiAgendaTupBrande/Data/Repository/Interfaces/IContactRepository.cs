@@ -1,4 +1,5 @@
 ﻿using ApiAgendaTupBrande.Entities;
+using Azure;
 
 namespace ApiAgendaTupBrande.Data.Repository.Interfaces
 {
@@ -9,6 +10,6 @@ namespace ApiAgendaTupBrande.Data.Repository.Interfaces
         Task DeleteContact(Contact contact);
         Task<Contact> AddContact(Contact contact);
         Task UpdateContact(Contact contact);   
-        Task AddFavorite(Contact contact);
+        //Task AddFavorite(int id, JsonPatchDocument favoriteDTO);
     }
 }

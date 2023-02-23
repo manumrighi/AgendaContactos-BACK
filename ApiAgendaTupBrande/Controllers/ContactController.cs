@@ -12,7 +12,7 @@ namespace ApiAgendaTupBrande.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class ContactController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -20,10 +20,11 @@ namespace ApiAgendaTupBrande.Controllers
 
         //A traves de inyecion de dependencia podemos utilizar el contexto
         public ContactController(IMapper mapper, IContactRepository contactRepository)
-        { 
+        {
             _mapper = mapper;
             _contactRepository = contactRepository;
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Get()

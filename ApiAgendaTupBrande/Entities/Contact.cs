@@ -14,8 +14,8 @@ namespace ApiAgendaTupBrande.Entities
         public Boolean Favorite { get; set; }
 
         //[ForeignKey("UserId")]
-        //public int UserId { get; set; } 
         //public User? User { get; set; }
+        //public int UserId { get; set; } 
 
     }
 }

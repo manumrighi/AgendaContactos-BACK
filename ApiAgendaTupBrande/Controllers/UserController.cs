@@ -88,6 +88,8 @@ namespace ApiAgendaTupBrande.Controllers
 
 
         [HttpPost]
+        [AllowAnonymous]
+
         public async Task<IActionResult> Post(UserDTO userDto)
         {
             try
