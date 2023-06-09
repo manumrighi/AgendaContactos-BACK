@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     {
         Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
-        Description = "Acá pegar el token generado al loguearse."
+        Description = "Acï¿½ pegar el token generado al loguearse."
     });
 
     setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -45,7 +45,7 @@ builder.Services.AddSwaggerGen(setupAction =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "AgendaApiBearerAuth" } //Tiene que coincidir con el id seteado arriba en la definición
+                    Id = "AgendaApiBearerAuth" } //Tiene que coincidir con el id seteado arriba en la definiciï¿½n
                 }, new List<string>() }
     });
 });
@@ -64,8 +64,8 @@ builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Add Authentication 
-builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticación que tenemos que elegir después en PostMan para pasarle el token
-    .AddJwtBearer(options => //Acá definimos la configuración de la autenticación. le decimos qué cosas queremos comprobar. La fecha de expiración se valida por defecto.
+builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticaciï¿½n que tenemos que elegir despuï¿½s en PostMan para pasarle el token
+    .AddJwtBearer(options => //Acï¿½ definimos la configuraciï¿½n de la autenticaciï¿½n. le decimos quï¿½ cosas queremos comprobar. La fecha de expiraciï¿½n se valida por defecto.
     {
         options.TokenValidationParameters = new()
         {
@@ -82,11 +82,11 @@ builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntentica
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+app.UseSwagger();
+app.UseSwaggerUI();
+// }
 
 app.UseHttpsRedirection();
 
